@@ -20,5 +20,7 @@ from ibonchi.core import views
 urlpatterns = [
     path('', views.dash, name='dash'),
     path('admin/', admin.site.urls),
+    path('signup/', views.signup, name='signup'),
+    path('registration', include('django.contrib.auth.urls'))
 
 ]

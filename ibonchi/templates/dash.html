@@ -5,5 +5,7 @@
 
     {% block content %}
         <h2>Dashboard</h2>
-        <p>Welcome to ibonchi</p>
+        <p>Welcome to ibonchi, {% if user.is_authenticated %}/ {{ user.username }}
+            {% else %} Visitor
+        {% endif %}</p>
     {% endblock %}
