@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from ibonchi.core import views
+from ibonchi.core.views import ProfileUpdate
 
 urlpatterns = [
     path('', views.dash, name='dash'),
     path('admin/', admin.site.urls),
     path('signup/', views.signup, name='signup'),
-    path('registration', include('django.contrib.auth.urls'))
+    path('registration', include('django.contrib.auth.urls')),
+    path('create_profile/', views.create_profile, name='create_profile'),
+    path('edit_profile/<form_id>', ProfileUpdate.as_view(), name='edit_profile'),
 
 ]
