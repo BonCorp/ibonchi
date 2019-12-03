@@ -5,35 +5,6 @@
         <form  method="post">
             {% csrf_token %}
             {{ form.as_p }}
-           {% comment %} <label for="name">Name</label>
-            <p><input id="name" type="text" name="name" value="{{ user_profile.name }}"></p>
-
-            <label for="street_address">Street Address</label>
-            <p><input id="street_address" type="text" name="street_address" value="{{ user_profile.street_address }}"></p>
-
-            <label for="city">City</label>
-            <p><input id="city" type="text" name="ciy" value="{{ user_profile.city }}"></p>
-
-            <label for="state">state</label>
-            <p><input id="state" type="text" name="state" value="{{ user_profile.state }}"></p>
-
-             <label for="zipcode">Zipcode</label>
-            <p><input id="zipcode" type="text" name="zipcode" value="{{ user_profile.zipcode }}"></p>
-
-            <label for="phone">phone</label>
-            <p><input id="phone" type="text" name="phone" value="{{ user_profile.phone }}"></p>
-
-            <label for="cuisine">Cuisine</label>
-            <p><input id="cuisine" type="text" name="cuisine" value="{{ user_profile.cuisine}}"></p>
-
-            <label id="tagline" for="tagline">Name</label>
-            <p><input type="text" name="tagline" value="{{ user_profile.tagline }}"></p>
-
-            <label for="open_hours">Open Hours</label>
-            <p><input id="open_hours" type="text" name="open_hours" value="{{ user_profile.open_hours }}"></p>
-
-            <label for="close_hours">Close Hours</label>
-            <p><input id="close_hours" type="text" name="close_hours" value="{{ user_profile.close_hours }}"></p>{% endcomment %}
             <input type="submit" value="Save">
         </form>
 {% endblock %}

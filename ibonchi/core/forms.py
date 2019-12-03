@@ -1,9 +1,8 @@
 from django import forms
-from django.views.generic import UpdateView
+from django.forms import FileField
 
-from .models import Profile
-
-from django.contrib.auth.models import User
+from ibonchi.core.models import MenuItem, MenuImage
+from ibonchi.core.models.Profile import Profile
 
 
 class ProfileForm(forms.ModelForm):
@@ -13,3 +12,13 @@ class ProfileForm(forms.ModelForm):
                   'cuisine', 'tagline', 'open_hours', 'close_hours']
 
 
+class MenuItemForm(forms.ModelForm):
+    class Meta:
+        model = MenuItem
+        fields = ['title', 'description', 'price', 'calories', 'category']
+
+
+class MenuImageForm(forms.ModelForm):
+    class Meta:
+        model = MenuImage
+        fields = ['image']

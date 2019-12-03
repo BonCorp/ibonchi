@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from ibonchi.core import views
-from ibonchi.core.views import ProfileUpdate
+
+from ibonchi.core.views.menu.menu_item import \
+    MenuItemList, MenuItemCreate, MenuItemDelete, MenuItemUpdate, MenuItemDetail, MenuImageCreate
+from ibonchi.core.views.views import ProfileUpdate
+from ibonchi.core.views import views
 
 urlpatterns = [
     path('', views.dash, name='dash'),
@@ -25,5 +28,11 @@ urlpatterns = [
     path('registration', include('django.contrib.auth.urls')),
     path('create_profile/', views.create_profile, name='create_profile'),
     path('edit_profile/<form_id>', ProfileUpdate.as_view(), name='edit_profile'),
+    path('menu_items', MenuItemList.as_view(), name='menu_items'),
+    path('create_menuitem', MenuItemCreate.as_view(), name='create_menuitem'),
+    path('<int:id>/delete', MenuItemDelete.as_view(), name='delete_menuitem'),
+    path('<int:id>/edit', MenuItemUpdate.as_view(), name='update_menuitem'),
+    path('<slug:pk>/detail', MenuItemDetail.as_view(), name='detail_menuitem'),
+    path('<int:id>/images', MenuImageCreate.as_view(), name='image_menuitem')
 
 ]

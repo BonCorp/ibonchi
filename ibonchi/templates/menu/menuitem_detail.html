@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ object.title }}</h1>
+    <hr>
+    Upload images below!
+    <form action="{% url 'image_menuitem' object.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}'
+        <div class="fieldWrapper">
+            {{ form.image.errors }}
+            <input name="image"  type="file" id="{{ form.image }}">
+        </div>
+    <input type="submit" value="Upload">
+    </form>
+
+
+{% endblock %}

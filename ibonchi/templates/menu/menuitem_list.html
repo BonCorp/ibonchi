@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>Menu Items</h1>
+    <p>Add a new item to your menu</p>
+    <p><a href="{% url 'create_menuitem' %}" class="btn btn-primary">Add Item</a></p>
+       <ul>
+       {% for menu_item in object_list %}
+            <a href="{{ menu_item.id }}/detail">{{ menu_item.title }} - {{  menu_item.price }}</a> <li>
+            <a href="{{ menu_item.id }}/edit" class="btn btn-warning">Edit</a>
+            <a href="{{ menu_item.id }}/delete" class="btn btn-danger">Delete</a>
+        </li>
+       {% endfor %}
+
+       </ul>
+{% endblock %}
