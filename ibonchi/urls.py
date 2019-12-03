@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from ibonchi.core.views.employee.employee import EmployeeList, EmployeeCreate, EmployeeUpdate, EmployeeDelete
 from ibonchi.core.views.menu.menu_item import \
     MenuItemList, MenuItemCreate, MenuItemDelete, MenuItemUpdate, MenuItemDetail, MenuImageCreate
+
 from ibonchi.core.views.views import ProfileUpdate
 from ibonchi.core.views import views
+
+
+
 
 urlpatterns = [
     path('', views.dash, name='dash'),
@@ -33,6 +38,11 @@ urlpatterns = [
     path('<int:id>/delete', MenuItemDelete.as_view(), name='delete_menuitem'),
     path('<int:id>/edit', MenuItemUpdate.as_view(), name='update_menuitem'),
     path('<slug:pk>/detail', MenuItemDetail.as_view(), name='detail_menuitem'),
-    path('<int:id>/images', MenuImageCreate.as_view(), name='image_menuitem')
+    path('<int:id>/images', MenuImageCreate.as_view(), name='image_menuitem'),
+
+    path('employees', EmployeeList.as_view(), name='employees'),
+    path('create_employee', EmployeeCreate.as_view(), name='create_employee'),
+    path('employee/<int:id>/edit', EmployeeUpdate.as_view(), name='update_employee'),
+    path('employee/<int:id>/delete', EmployeeDelete.as_view(), name='delete_employee'),
 
 ]

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete {{ object.name}} from the menu?</p>
+        <small>This cannot be undone</small>
+        <input type="submit" value="Confirm">
+    </form>
+{% endblock %}

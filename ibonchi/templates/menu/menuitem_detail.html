@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>{{ object.title }}</h1>
+    
     <hr>
     Upload images below!
     <form action="{% url 'image_menuitem' object.id %}" method="post" enctype="multipart/form-data">

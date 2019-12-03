@@ -3,6 +3,7 @@ from django.forms import FileField
 
 from ibonchi.core.models import MenuItem, MenuImage
 from ibonchi.core.models.Profile import Profile
+from ibonchi.core.models import Employee
 
 
 class ProfileForm(forms.ModelForm):
@@ -22,3 +23,9 @@ class MenuImageForm(forms.ModelForm):
     class Meta:
         model = MenuImage
         fields = ['image']
+
+
+class EmployeeForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        fields = ['name', 'position', 'photo']
